@@ -1,8 +1,17 @@
 package com.example.citasmed.Interface
 
-import retrofit2.http.GET
+import kotlinx.serialization.json.JsonObject
+import retrofit2.Response
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 
 interface apiService {
-    @GET("login.php")
-    suspend fun obtenerCategorias(): List<dataCategorias>
+
+    @FormUrlEncoded
+    @POST("login.php")
+    suspend fun iniciarSesion(
+        @Field("correo") correo: String,
+        @Field("contrasena") contrasena: String
+    ): Response<JsonObject>
 }

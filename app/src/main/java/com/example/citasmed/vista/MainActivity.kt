@@ -29,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        if (android.os.Build.VERSION.SDK_INT >= 37) {
+            val permiso = "android.permission.ACCESS_LOCAL_NETWORK"
+
+            if (checkSelfPermission(permiso) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(permiso), 100)
+            }
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(
