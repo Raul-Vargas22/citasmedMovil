@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="62dp"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:background="#FFFFFF" android:paddingStart="13dp" android:paddingEnd="15dp">
+    <TextView android:id="@+id/txtCerrarSesionEmpleado"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:padding="8dp" android:text="↩ Salir" android:textColor="#5E798B" android:textSize="12sp" />
+    <View android:layout_width="1dp" android:layout_height="25dp" android:layout_marginStart="4dp" android:layout_marginEnd="12dp" android:background="#DDE9F0" />
+    <ImageView android:layout_width="34dp" android:layout_height="34dp"
+        android:src="@drawable/captura_de_pantalla_2026_07_07_224942" android:contentDescription="Logo de CITASMED" />
+    <TextView android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="wrap_content" android:text="CITASMED"
+        android:layout_marginStart="7dp" android:textStyle="bold"
+        android:textSize="17sp" android:textColor="#29546E" />
+    <TextView android:id="@+id/txtInicialesEmpleado" android:layout_width="39dp"
+        android:layout_height="39dp" android:gravity="center" android:background="@drawable/cm_avatar"
+        android:text="AL" android:textStyle="bold" android:textSize="13sp" android:textColor="#3886B1" />
+</LinearLayout>

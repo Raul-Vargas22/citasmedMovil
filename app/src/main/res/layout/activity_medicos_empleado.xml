@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:background="#F2F7FA">
+        <include layout="@layout/cm_cabecera_empleado" />
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="false">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:paddingStart="18dp" android:paddingEnd="18dp" android:paddingTop="19dp" android:paddingBottom="20dp">
+                <TextView android:id="@+id/btnRegresarEmpleado" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="← Regresar" android:textSize="14sp" android:textColor="#3489B8" android:paddingBottom="14dp" /><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Médicos y horarios" android:textColor="#263F4F" android:textSize="25sp" android:textStyle="bold" android:layout_marginTop="0dp" /><EditText android:id="@+id/txtBuscarMedicoEmpleado" android:layout_width="match_parent" android:layout_height="49dp" android:layout_marginTop="19dp" android:background="@drawable/cm_campo" android:hint="Buscar médico o especialidad" android:singleLine="true" android:paddingStart="14dp" android:paddingEnd="12dp" android:inputType="text" android:textSize="13sp" android:textColor="#263F4F" android:textColorHint="#90A1AE" /><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="10dp" android:padding="12dp" android:background="@drawable/cm_tarjeta_alt"><LinearLayout android:id="@+id/tarjetaMedico1" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+      <TextView android:layout_width="42dp" android:layout_height="45dp" android:background="@drawable/cm_icono" android:text="⚕" android:gravity="center" android:textSize="22sp" android:textColor="#438FC1" />
+      <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_marginStart="11dp" android:layout_height="wrap_content" android:orientation="vertical">
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dra. Elena Ramírez" android:textStyle="bold" android:textSize="14sp" android:textColor="#263F4F" />
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Medicina general" android:textSize="12sp" android:textColor="#7E91A1" android:layout_marginTop="2dp" />
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lun a Vie · 9:00–14:00" android:textSize="11sp" android:textColor="#277DB1" android:layout_marginTop="3dp" />
+      </LinearLayout>
+    </LinearLayout></LinearLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="10dp" android:padding="12dp" android:background="@drawable/cm_tarjeta_alt"><LinearLayout android:id="@+id/tarjetaMedico2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+      <TextView android:layout_width="42dp" android:layout_height="45dp" android:background="@drawable/cm_icono" android:text="⚕" android:gravity="center" android:textSize="22sp" android:textColor="#438FC1" />
+      <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_marginStart="11dp" android:layout_height="wrap_content" android:orientation="vertical">
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dr. Luis Méndez" android:textStyle="bold" android:textSize="14sp" android:textColor="#263F4F" />
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cardiología" android:textSize="12sp" android:textColor="#7E91A1" android:layout_marginTop="2dp" />
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lun a Vie · 9:00–14:00" android:textSize="11sp" android:textColor="#277DB1" android:layout_marginTop="3dp" />
+      </LinearLayout>
+    </LinearLayout></LinearLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="10dp" android:padding="12dp" android:background="@drawable/cm_tarjeta_alt"><LinearLayout android:id="@+id/tarjetaMedico3" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+      <TextView android:layout_width="42dp" android:layout_height="45dp" android:background="@drawable/cm_icono" android:text="⚕" android:gravity="center" android:textSize="22sp" android:textColor="#438FC1" />
+      <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_marginStart="11dp" android:layout_height="wrap_content" android:orientation="vertical">
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dr. Carlos Sánchez" android:textStyle="bold" android:textSize="14sp" android:textColor="#263F4F" />
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pediatría" android:textSize="12sp" android:textColor="#7E91A1" android:layout_marginTop="2dp" />
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lun a Vie · 9:00–14:00" android:textSize="11sp" android:textColor="#277DB1" android:layout_marginTop="3dp" />
+      </LinearLayout>
+    </LinearLayout></LinearLayout><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Horarios ilustrativos; consulta de datos reales pendiente." android:textColor="#8195A5" android:textSize="11sp" android:layout_marginTop="12dp" />
+            </LinearLayout>
+        </ScrollView>
+        <include layout="@layout/cm_barra_empleado" />
+    </LinearLayout>

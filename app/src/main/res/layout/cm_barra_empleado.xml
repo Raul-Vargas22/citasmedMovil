@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="72dp" android:orientation="horizontal"
+    android:background="#FFFFFF" android:gravity="center_vertical"
+    android:paddingStart="5dp" android:paddingEnd="5dp">
+    <LinearLayout android:id="@+id/navInicioEmpleado" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+        <TextView android:id="@+id/iconNavInicioEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⌂" android:textSize="25sp" android:textColor="#92A6B5" />
+        <TextView android:id="@+id/labelNavInicioEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Inicio" android:textSize="10sp" android:textColor="#92A6B5" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/navPacientesEmpleado" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+        <TextView android:id="@+id/iconNavPacientesEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="♧" android:textSize="25sp" android:textColor="#92A6B5" />
+        <TextView android:id="@+id/labelNavPacientesEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pacientes" android:textSize="10sp" android:textColor="#92A6B5" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/navCitasEmpleado" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+        <TextView android:id="@+id/iconNavCitasEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="▦" android:textSize="25sp" android:textColor="#92A6B5" />
+        <TextView android:id="@+id/labelNavCitasEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gestión de citas" android:textSize="10sp" android:textColor="#92A6B5" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/navMedicosEmpleado" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+        <TextView android:id="@+id/iconNavMedicosEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚕" android:textSize="25sp" android:textColor="#92A6B5" />
+        <TextView android:id="@+id/labelNavMedicosEmpleado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Médicos" android:textSize="10sp" android:textColor="#92A6B5" />
+    </LinearLayout>
+</LinearLayout>
