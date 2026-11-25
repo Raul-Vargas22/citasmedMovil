@@ -1,12 +1,11 @@
 <resources>
-<string name="app_name">CitasMed</string>
+    <string name="app_name">CitasMed</string>
 
 
-
-        <string-array name="perfiles">
-            <item>Selecciona un perfil</item>
-            <item>Administrador</item>
-            <item>Doctor</item>
-            <item>Empleado</item>
-        </string-array>
-    </resources>
+    <string-array name="perfiles">
+        <item>Selecciona un perfil</item>
+        <item>Administrador</item>
+        <item>Doctor</item>
+        <item>Empleado</item>
+    </string-array>
+</resources>

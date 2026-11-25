@@ -22,5 +22,13 @@ class clsModelo {
             datos.getValue("token").jsonPrimitive.content,
             true
         )
+        fun datoContra(contra: String): String {
+            return contra
+        }
+
+        fun validarInicioSesion(usuario: String, contra: String): Boolean {
+            return nombreUsuario(usuario) == "admin" &&
+                    datoContra(contra) == "12345"
+        }
     }
 }
