@@ -14,9 +14,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import com.example.citasmed.R
 import com.example.citasmed.Modelo.clsModelo
 import com.example.citasmed.Modelo.dataPacienteEmpleado
@@ -25,6 +34,8 @@ import com.example.citasmed.Presentador.clsPresentadorEmpleado
 class menuEmpleado : AppCompatActivity() {
     private val presentador = clsPresentadorEmpleado()
     private var pantalla = 0
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    private var solicitudPacientes: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +43,7 @@ class menuEmpleado : AppCompatActivity() {
     }
 
     private fun abrir(layout: Int, seccion: Int) {
+        if (seccion != 1) solicitudPacientes?.cancel()
         pantalla = seccion
         setContentView(layout)
         findViewById<TextView>(R.id.txtCerrarSesionEmpleado).setOnClickListener { finish() }
@@ -72,17 +84,34 @@ class menuEmpleado : AppCompatActivity() {
         buscar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                mostrarLista(s?.toString().orEmpty())
+                cargarPacientes(s?.toString().orEmpty())
             }
             override fun afterTextChanged(s: Editable?) {}
         })
-        mostrarLista("")
+        cargarPacientes("")
     }
 
-    private fun mostrarLista(texto: String) {
+    private fun cargarPacientes(texto: String) {
+        solicitudPacientes?.cancel()
+        solicitudPacientes = scope.launch {
+            try {
+                delay(220)
+                val pacientes = presentador.buscarPacientes(texto)
+                if (pantalla == 1) mostrarLista(pacientes)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                if (pantalla == 1) {
+                    findViewById<TextView>(R.id.txtCantidadPacientesEmpleado).text = "Error al consultar"
+                    Toast.makeText(this@menuEmpleado, e.message ?: "Error de conexión", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun mostrarLista(pacientes: List<dataPacienteEmpleado>) {
         val lista = findViewById<LinearLayout>(R.id.contenedorPacientesEmpleado)
         lista.removeAllViews()
-        val pacientes = presentador.buscarPacientes(texto)
         findViewById<TextView>(R.id.txtCantidadPacientesEmpleado).text = "${pacientes.size} resultados"
         for (paciente in pacientes) {
             val fila = LinearLayout(this).apply {
@@ -101,7 +130,7 @@ class menuEmpleado : AppCompatActivity() {
             val datos = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
             val p = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
             datos.addView(TextView(this).apply {
-                text = "◉  ${paciente.nombre}"
+                text = "◉  ${paciente.nombre} ${paciente.apellidos}"
                 textSize = 15f
                 setTextColor(Color.parseColor("#273F50"))
                 setTypeface(null, Typeface.BOLD)
@@ -112,7 +141,7 @@ class menuEmpleado : AppCompatActivity() {
                 setTextColor(Color.parseColor("#80919F"))
             })
             fila.addView(datos, p)
-            val boton = Button(this).apply {
+            fila.addView(Button(this).apply {
                 text = "Actualizar"
                 isAllCaps = false
                 textSize = 11f
@@ -120,8 +149,7 @@ class menuEmpleado : AppCompatActivity() {
                 setTextColor(Color.parseColor("#2F80B7"))
                 backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E7F3FB"))
                 setOnClickListener { formularioPaciente(paciente) }
-            }
-            fila.addView(boton)
+            })
             lista.addView(fila, params)
         }
         if (pacientes.isEmpty()) lista.addView(TextView(this).apply {
@@ -134,36 +162,51 @@ class menuEmpleado : AppCompatActivity() {
     private fun formularioPaciente(paciente: dataPacienteEmpleado?) {
         val contenedor = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(20), dp(5), dp(20), 0)
+            setPadding(dp(20), dp(4), dp(20), dp(4))
         }
-        val nombre = EditText(this).apply {
-            hint = "Nombre completo"
-            setSingleLine(true)
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_WORDS
-            setText(paciente?.nombre.orEmpty())
+        fun campo(etiqueta: String, valor: String): EditText {
+            return EditText(this).apply {
+                hint = etiqueta
+                setSingleLine(true)
+                setText(valor)
+                contenedor.addView(this)
+            }
         }
-        val telefono = EditText(this).apply {
-            hint = "Teléfono (10 dígitos)"
-            setSingleLine(true)
+        val nombre = campo("Nombre", paciente?.nombre.orEmpty())
+        val apellidos = campo("Apellidos", paciente?.apellidos.orEmpty())
+        val correo = campo("Correo electrónico", paciente?.correo.orEmpty()).apply {
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+        }
+        val telefono = campo("Teléfono (10 dígitos)", paciente?.telefono.orEmpty()).apply {
             inputType = InputType.TYPE_CLASS_PHONE
-            setText(paciente?.telefono.orEmpty())
         }
-        contenedor.addView(nombre)
-        contenedor.addView(telefono)
+        val curp = campo("CURP (opcional)", paciente?.curp.orEmpty())
+        val nacimiento = campo("Nacimiento AAAA-MM-DD (opcional)", paciente?.fechaNacimiento.orEmpty())
+        val scroll = ScrollView(this).apply { addView(contenedor) }
         val dialogo = AlertDialog.Builder(this)
             .setTitle(if (paciente == null) "Registrar paciente" else "Actualizar paciente")
-            .setView(contenedor)
+            .setView(scroll)
             .setNegativeButton("Cancelar", null)
             .setPositiveButton("Guardar", null)
             .create()
         dialogo.setOnShowListener {
-            dialogo.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                val error = presentador.guardarPaciente(paciente?.id, nombre.text.toString(), telefono.text.toString())
-                if (error != null) Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
-                else {
-                    dialogo.dismiss()
-                    Toast.makeText(this, "Guardado en demostración (no MySQL)", Toast.LENGTH_SHORT).show()
-                    mostrarLista(findViewById<EditText>(R.id.txtBuscarPacienteEmpleado).text.toString())
+            val boton = dialogo.getButton(AlertDialog.BUTTON_POSITIVE)
+            boton.setOnClickListener {
+                boton.isEnabled = false
+                scope.launch {
+                    val error = presentador.guardarPaciente(
+                        paciente, nombre.text.toString(), apellidos.text.toString(),
+                        correo.text.toString(), telefono.text.toString(),
+                        curp.text.toString(), nacimiento.text.toString()
+                    )
+                    boton.isEnabled = true
+                    if (error != null) {
+                        Toast.makeText(this@menuEmpleado, error, Toast.LENGTH_LONG).show()
+                    } else {
+                        dialogo.dismiss()
+                        Toast.makeText(this@menuEmpleado, "Guardado en MySQL", Toast.LENGTH_SHORT).show()
+                        cargarPacientes(findViewById<EditText>(R.id.txtBuscarPacienteEmpleado).text.toString())
+                    }
                 }
             }
         }
@@ -199,6 +242,11 @@ class menuEmpleado : AppCompatActivity() {
             }
             override fun afterTextChanged(s: Editable?) {}
         })
+    }
+
+    override fun onDestroy() {
+        scope.cancel()
+        super.onDestroy()
     }
 
     private fun dp(value: Int): Int = (value * resources.displayMetrics.density).toInt()
