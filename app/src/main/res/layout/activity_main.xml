@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="47dp"
                     android:layout_marginTop="7dp"
-                    android:background="@drawable/cm_campo"
+                    android:spinnerMode="dialog"
                     android:entries="@array/perfiles"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp" />
