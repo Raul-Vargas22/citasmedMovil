@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp">
+
+    <LinearLayout
+        android:id="@+id/navInicioAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/iconNavInicioAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⌂"
+            android:textColor="#92A6B5"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/labelNavInicioAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="inicio"
+            android:textColor="#92A6B5"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navMedicosAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/iconNavMedicosAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#92A6B5"
+            android:text="🩺"
+            android:textColor="#92A6B5"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/labelNavMedicosAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medicos"
+            android:textColor="#92A6B5"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navEspecialidadesAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/iconNavEspecialidadesAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#92A6B5"
+            android:text="🕒"
+            android:textColor="#92A6B5"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/labelNavEspecialidadesAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Especialidades"
+            android:textColor="#92A6B5"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navUsuariosAdmin"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/iconNavUsuarioAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#92A6B5"
+            android:text="👥"
+            android:textColor="#92A6B5"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/labelNavUsuariosAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuarios y permisos"
+            android:textColor="#92A6B5"
+            android:textSize="10sp" />
+    </LinearLayout>
+</LinearLayout>
