@@ -35,7 +35,7 @@
                     android:id="@+id/imageView"
                     android:layout_width="76dp"
                     android:layout_height="76dp"
-                    android:src="@drawable/captura_de_pantalla_2026_07_07_224942"
+                    android:src="@drawable/logo"
                     android:contentDescription="Logotipo CITASMED"
                     android:scaleType="fitCenter" />
                 <TextView

@@ -113,7 +113,7 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_marginStart="7dp"
-                        android:src="@drawable/captura_de_pantalla_2026_07_07_224942"
+                        android:src="@drawable/logo"
                         android:scaleType="fitCenter"
                         android:contentDescription="Logo CITASMED" />
 

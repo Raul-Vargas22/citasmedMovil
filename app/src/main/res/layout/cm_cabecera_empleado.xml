@@ -8,7 +8,7 @@
         android:padding="8dp" android:text="↩ Salir" android:textColor="#5E798B" android:textSize="12sp" />
     <View android:layout_width="1dp" android:layout_height="25dp" android:layout_marginStart="4dp" android:layout_marginEnd="12dp" android:background="#DDE9F0" />
     <ImageView android:layout_width="34dp" android:layout_height="34dp"
-        android:src="@drawable/captura_de_pantalla_2026_07_07_224942" android:contentDescription="Logo de CITASMED" />
+        android:src="@drawable/logo" android:contentDescription="Logo de CITASMED" />
     <TextView android:layout_width="0dp" android:layout_weight="1"
         android:layout_height="wrap_content" android:text="CITASMED"
         android:layout_marginStart="7dp" android:textStyle="bold"

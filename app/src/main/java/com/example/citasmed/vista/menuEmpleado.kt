@@ -18,6 +18,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.citasmed.Modelo.clsModeloEmpleado
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,7 +28,6 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import com.example.citasmed.R
-import com.example.citasmed.Modelo.clsModelo
 import com.example.citasmed.Modelo.dataPacienteEmpleado
 import com.example.citasmed.Presentador.clsPresentadorEmpleado
 
@@ -60,7 +60,7 @@ class menuEmpleado : AppCompatActivity() {
             findViewById<TextView>(nombres[i]).setTextColor(color)
             findViewById<TextView>(iconos[i]).setTextColor(color)
         }
-        val nombre = clsModelo.sesion?.nombre.orEmpty().trim()
+     //   val nombre = clsModeloEmpleado.sesion?.nombre.orEmpty().trim()
         val iniciales = nombre.split(" ").filter { it.isNotBlank() }.take(2)
             .joinToString("") { it.take(1).uppercase() }
         if (iniciales.isNotBlank()) findViewById<TextView>(R.id.txtInicialesEmpleado).text = iniciales
@@ -250,9 +250,4 @@ class menuEmpleado : AppCompatActivity() {
     }
 
     private fun dp(value: Int): Int = (value * resources.displayMetrics.density).toInt()
-
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        if (pantalla != 0) mostrarInicio() else super.onBackPressed()
-    }
 }

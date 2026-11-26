@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.citasmed.R
-import com.example.citasmed.Presentador.clsPresentador
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnSalir: Button
     private lateinit var opcPerfiles: Spinner
 
-    private lateinit var presentador: clsPresentador
+   // private lateinit var presentador: clsPresentador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         btnInicioSesion = findViewById(R.id.btnInicioSesion)
         opcPerfiles = findViewById(R.id.opcPerfiles)
 
-        presentador = clsPresentador(this)
+        //presentador = clsPresentador(this)
 
         btnInicioSesion.setOnClickListener(this::ejecutarInicioSesion)
 
@@ -73,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        presentador.inicioSesion(usuario, contra, perfil)
+        //presentador.inicioSesion(usuario, contra, perfil)
     }
 
     fun abrirVentana(perfil: String) {

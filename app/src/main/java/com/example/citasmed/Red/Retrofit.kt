@@ -16,11 +16,16 @@ object Retrofit {
         isLenient = true
     }
 
-    val apiservice: apiService by lazy {
+    val apiService: apiService by lazy {
+
         val contentType = "application/json".toMediaType()
 
-        Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(jsonConfig.asConverterFactory(contentType))
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(
+                jsonConfig.asConverterFactory(contentType)
+            )
             .build()
-            .create(apiServicei::class.java)
+            .create(apiService::class.java)
     }
 }
