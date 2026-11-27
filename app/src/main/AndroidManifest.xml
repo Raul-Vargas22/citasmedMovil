@@ -6,8 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" />
 
     <application
-        android:usesCleartextTraffic="true"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -43,15 +42,23 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".vista.citasMedico"
+            android:name=".vista.E"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".vista.datosPaciente"
+            android:name=".vista.menuEspecialidadesHorariosAdmin"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".vista.LoginActivity"
+            android:name=".vista.gestion_medicos_admin"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".vista.resgistroEspecialidadHorario"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".vista.usuariosPermisosAdmin"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
