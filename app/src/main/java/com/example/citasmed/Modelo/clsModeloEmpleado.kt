@@ -23,7 +23,7 @@ class clsModeloEmpleado {
             throw IllegalStateException("No se pudo consultar pacientes (HTTP ${respuesta.code()})")
         }
         val lista = respuesta.body() as? JsonArray
-            ?: throw IllegalStateException("La API no devolvió una lista de pacientes")
+            ?: throw IllegalStateException("No se pudieron leer los pacientes")
         return lista.mapNotNull { elemento ->
             val paciente = elemento as? JsonObject ?: return@mapNotNull null
             val id = campo(paciente, "id_paciente").toIntOrNull() ?: return@mapNotNull null
@@ -56,7 +56,7 @@ class clsModeloEmpleado {
         }
         val cuerpo = respuesta.body() as? JsonObject
         if ((cuerpo?.get("exito") as? JsonPrimitive)?.booleanOrNull != true) {
-            throw IllegalStateException(cuerpo?.let { campo(it, "mensaje") }.orEmpty().ifBlank { "No se confirmó el guardado" })
+            throw IllegalStateException(cuerpo?.let { campo(it, "mensaje") }.orEmpty().ifBlank { "No se pudo guardar el paciente" })
         }
     }
 }
