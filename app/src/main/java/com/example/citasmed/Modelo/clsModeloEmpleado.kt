@@ -1,5 +1,6 @@
 package com.example.citasmed.Modelo
 
+import com.example.citasmed.Red.Retrofit
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonNull
@@ -17,12 +18,12 @@ class clsModeloEmpleado {
     }
 
     suspend fun buscarPacientes(texto: String): List<dataPacienteEmpleado> {
-        val respuesta = Retrofit.apiservice.buscarPaciente(mapOf("buscar" to texto.trim()))
+        val respuesta = Retrofit.apiService.buscarPaciente(mapOf("buscar" to texto.trim()))
         if (!respuesta.isSuccessful) {
             throw IllegalStateException("No se pudo consultar pacientes (HTTP ${respuesta.code()})")
         }
         val lista = respuesta.body() as? JsonArray
-            ?: throw IllegalStateException("La API no devolvió una lista de pacientes")
+            ?: throw IllegalStateException("No se pudieron leer los pacientes")
         return lista.mapNotNull { elemento ->
             val paciente = elemento as? JsonObject ?: return@mapNotNull null
             val id = campo(paciente, "id_paciente").toIntOrNull() ?: return@mapNotNull null
@@ -40,9 +41,9 @@ class clsModeloEmpleado {
 
     suspend fun guardarPaciente(paciente: dataPacienteEmpleado?, datos: Map<String, String>) {
         val respuesta: Response<JsonElement> = if (paciente == null) {
-            Retrofit.apiservice.registrarPaciente(datos)
+            Retrofit.apiService.registrarPaciente(datos)
         } else {
-            Retrofit.apiservice.actualizarPaciente(datos + mapOf("id_paciente" to paciente.id.toString()))
+            Retrofit.apiService.actualizarPaciente(datos + mapOf("id_paciente" to paciente.id.toString()))
         }
         if (!respuesta.isSuccessful) {
             val mensaje = respuesta.errorBody()?.string()?.let { cuerpo ->
@@ -55,7 +56,7 @@ class clsModeloEmpleado {
         }
         val cuerpo = respuesta.body() as? JsonObject
         if ((cuerpo?.get("exito") as? JsonPrimitive)?.booleanOrNull != true) {
-            throw IllegalStateException(cuerpo?.let { campo(it, "mensaje") }.orEmpty().ifBlank { "No se confirmó el guardado" })
+            throw IllegalStateException(cuerpo?.let { campo(it, "mensaje") }.orEmpty().ifBlank { "No se pudo guardar el paciente" })
         }
     }
 }
