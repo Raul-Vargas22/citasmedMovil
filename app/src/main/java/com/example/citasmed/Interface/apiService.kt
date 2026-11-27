@@ -9,6 +9,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.QueryMap
+import com.example.citasmed.Modelo.dataCitaPaciente
 
 interface apiService {
 
@@ -42,7 +43,7 @@ interface apiService {
     @GET("obtener_citas.php")
     suspend fun obtenerCitas(
         @QueryMap parametros: Map<String, String> = emptyMap()
-    ): Response<JsonElement>
+    ): Response<List<dataCitaPaciente>>
 
     @GET("obtener_especialidades.php")
     suspend fun obtenerEspecialidades(): Response<JsonElement>

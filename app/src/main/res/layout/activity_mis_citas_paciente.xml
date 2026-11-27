@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F8FB">
+
+    <include
+        layout="@layout/cm_cabecera_paciente" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/txtRegresarMisCitas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Regresar"
+                android:textColor="#2878C8"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="GESTIÓN DE CITAS"
+                android:textColor="#718394"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Mis citas"
+                android:textColor="#183B60"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnRegistrarNuevaCita"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginTop="20dp"
+                android:text="+ Registrar cita"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:backgroundTint="#2878C8"
+                android:minHeight="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+
+            <LinearLayout
+                android:id="@+id/contenedorProximasCitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical" />
+
+
+            <LinearLayout
+                android:id="@+id/contenedorHistorialCitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/cm_barra_paciente" />
+
+</LinearLayout>

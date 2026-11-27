@@ -40,6 +40,18 @@
             android:name=".vista.menuEmpleado"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".vista.nuevaCitaPaciente"
+            android:exported="false" />
+        <activity
+            android:name=".vista.misCitasPaciente"
+            android:exported="false" />
+        <activity
+            android:name=".vista.medicosPaciente"
+            android:exported="false" />
+        <activity
+            android:name=".vista.menuPaciente"
+            android:exported="false" />
     </application>
 
 </manifest>

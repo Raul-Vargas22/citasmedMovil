@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#FFFFFF">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:text="▦"
+            android:textColor="#2878C8"
+            android:textSize="25sp"
+            android:background="#EAF4FA" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNombreMedico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dr. Nombre del médico"
+                android:textColor="#183B60"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvEspecialidadPaciente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Especialidad médica"
+                android:textColor="#718394"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvFechaHora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="24 de junio - 09:00 h"
+                android:textColor="#526879"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvEstadoCita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:text="Confirmada"
+            android:textColor="#2878C8"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#EAF4FA" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnReprogramarCita"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Reprogramar"
+            android:textColor="#526879"
+            android:textSize="11sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#FFFFFF"
+            android:minHeight="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:id="@+id/btnCancelarCita"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="Cancelar"
+            android:textColor="#526879"
+            android:textSize="11sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#FFFFFF"
+            android:minHeight="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

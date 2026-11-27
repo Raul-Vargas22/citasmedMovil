@@ -5,5 +5,7 @@ data class dataLogin(
     val nombre: String,
     val rol: String,
     val token: String,
-    val exito: Boolean
+    val exito: Boolean,
+    val apellidos: String = "",
+    val correo: String = ""
 )

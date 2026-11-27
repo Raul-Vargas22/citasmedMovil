@@ -8,5 +8,6 @@
             <item>Administrador</item>
             <item>Doctor</item>
             <item>Empleado</item>
+            <item>Paciente</item>
         </string-array>
     </resources>

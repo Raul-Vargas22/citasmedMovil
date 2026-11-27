@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <TextView
+            android:id="@+id/txtTituloPantallaPaciente"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Inicio"
+            android:textColor="#183B60"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paciente · Móvil"
+            android:textColor="#718394"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <TextView
+            android:id="@+id/txtCerrarSesionPaciente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:text="Salir"
+            android:textColor="#2878C8"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:minHeight="48dp"
+            android:minWidth="64dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="48dp"
+                android:src="@drawable/captura_de_pantalla_2026_07_07_224942"
+                android:scaleType="fitCenter"
+                android:contentDescription="Logo CITASMED" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CITASMED"
+                android:textColor="#526B80"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtInicialesPaciente"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end|center_vertical"
+            android:gravity="center"
+            android:text="AL"
+            android:textColor="#183B60"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/cm_avatar" />
+
+    </FrameLayout>
+
+</LinearLayout>

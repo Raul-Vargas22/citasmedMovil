@@ -21,6 +21,7 @@ class clsPresentador(private val vista: MainActivity) {
                     "Administrador" -> "administrador"
                     "Doctor" -> "medico"
                     "Empleado" -> "personal_asistencia_medica"
+                    "Paciente" -> "paciente"
                     else -> ""
                 }
 

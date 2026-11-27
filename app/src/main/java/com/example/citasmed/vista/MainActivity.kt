@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.citasmed.R
 import com.example.citasmed.Presentador.clsPresentador
+import com.example.citasmed.vista.menuPaciente
 
 class MainActivity : AppCompatActivity() {
 
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity() {
             "Administrador" -> menuAdministrador::class.java
             "Doctor" -> menuDoctor::class.java
             "Empleado" -> menuEmpleado::class.java
+            "Paciente" -> menuPaciente::class.java
             else -> {
                 mostrarMensaje("Selecciona un perfil válido")
                 return

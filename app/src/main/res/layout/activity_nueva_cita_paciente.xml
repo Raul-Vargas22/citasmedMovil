@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F8FB">
+
+    <include
+        layout="@layout/cm_cabecera_paciente" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/txtRegresarNuevaCita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Regresar"
+                android:textColor="#2878C8"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/tvTituloCita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Nueva cita"
+                android:textColor="#183B60"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDescripcionCita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Registra una nueva cita médica de forma rápida y ordenada."
+                android:textColor="#718394"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:background="#2878C8">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvEtiquetaCita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NUEVA CITA"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSubtituloCita"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Encuentra el horario ideal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleTarjetaCita"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Selecciona especialidad, médico y disponibilidad."
+                        android:textColor="#EAF4FF"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/lblEspecialidadPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Especialidad *"
+                    android:textColor="#183B60"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <Spinner
+                    android:id="@+id/spnEspecialidadPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/cm_campo"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/lblMedicoPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Médico *"
+                    android:textColor="#183B60"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <Spinner
+                    android:id="@+id/spnMedicoPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/cm_campo"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Fecha *"
+                    android:textColor="#183B60"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/txtFechaPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/cm_campo"
+                    android:hint="dd / mm / aaaa"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Horario disponible *"
+                    android:textColor="#183B60"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <Spinner
+                    android:id="@+id/spnHorarioPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/cm_campo"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/lblTelefonoPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Número de teléfono *"
+                    android:textColor="#183B60"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/txtTelefonoPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/cm_campo"
+                    android:hint="Ej. 771 350 1991"
+                    android:inputType="phone"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/lblMotivoPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Motivo de la consulta *"
+                    android:textColor="#183B60"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/txtMotivoPaciente"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/cm_campo"
+                    android:gravity="top"
+                    android:hint="Describe brevemente el motivo"
+                    android:padding="12dp"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCancelarNuevaCita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Cancelar"
+                        android:textColor="#526879"
+                        android:backgroundTint="#FFFFFF"
+                        android:minHeight="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+
+                    <Button
+                        android:id="@+id/btnConfirmarNuevaCita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:text="Confirmar cita"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#2878C8"
+                        android:minHeight="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/cm_barra_paciente" />
+
+</LinearLayout>
